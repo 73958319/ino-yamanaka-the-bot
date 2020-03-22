@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Oscuro bot</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  </head>
+  <body>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="navbar-brand" href="#">
+  <img src="https://cdn.discordapp.com/avatars/<%= profil.id %>/<%= profil.avatar %>.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    <%= profil.username %>
+  </div>
+    <form class="form-inline">
+    <button class="btn btn btn-outline-light mr-sm-1" type="button" onclick="location.href='./leaderboard'">Leaderboard</button>
+    <button class="btn btn btn-outline-light mr-sm-5" type="button" onclick="location.href='./guilds'">Serveurs</button>
+    <button class="btn btn btn-outline-danger my-2 my-sm-0" type="button" onclick="location.href='./logout'">Se déconnecter</button>
+  </form>
+</nav>
+   <center><h1>
+     Bienvenue <b><%= profil.username %></b> sur le webdashboard de <b>Oscuro</b> ! 🤩<br>
+     </h1></center>
+    <center><div style="width:50%">
+          <h2>
+            XP :      </h2><div class="progress" style="height:2em">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="<%= profil.xp/10 %>" aria-valuemin="0" aria-valuemax="1000" style="width: <%= profil.xp/10 %>%"><%= profil.xp %> xp</div>
+</div>
+    </div>
+    <h2>
+      Reputation : <b><%= profil.reputation %></b>
+      </h2><h2>
+      Money : <b><%= profil.money %></b>
+      </h2></center>
+  </body>
+</html>

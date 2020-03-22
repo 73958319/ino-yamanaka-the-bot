@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Oscuro bot</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  </head>
+  <body>
+   <h1>
+    Serveurs :<br>
+     <% for(var i=0; i<guilds.length; i++) { if(guilds[i]) { %>
+     <a href="guilds/<%= guilds[i].id %>"><div class="hvrbox">
+   <img src="<% if(guilds[i].icon){ %>https://cdn.discordapp.com/icons/<%= guilds[i].id %>/<%= guilds[i].icon %>.png<% } else { %>https://cdn.glitch.com/d4749c9d-7c2a-4abf-8cfc-bb263c4010af%2Fdiscord.png?v=1584292406264<% } %>">
+       <div class="hvrbox-layer_top">
+		<div class="hvrbox-text"><%= guilds[i].name %></div>
+	</div>
+     </div>
+     </a>
+<% }} %>
+     <br><button type="button" onclick="location.href='./home'" class="btn btn-primary btn-lg" style="width: 200px;">Retour</button>
+   </h1>
+  </body>
+</html>
