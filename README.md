@@ -1,2 +1,2 @@
-# oscuro-bot
-A bot with web dashboard
+# bot oscuro 
+**__Meilleur bot du monde__**
