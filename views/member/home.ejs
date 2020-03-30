@@ -8,10 +8,11 @@
   <body>
 <nav class="navbar navbar-dark bg-dark">
     <div class="navbar-brand" href="#">
-  <img src="https://cdn.discordapp.com/avatars/<%= profil.id %>/<%= profil.avatar %>.png" width="30" height="30" class="d-inline-block align-top" alt="">
+  <img src="<% if(profil.avatar === null){%>https://cdn.glitch.com/d4749c9d-7c2a-4abf-8cfc-bb263c4010af%2Fdiscord.png?v=1584292406264<%} else { %>https://cdn.discordapp.com/avatars/<%= profil.id %>/<%= profil.avatar %>.png<% } %>" width="30" height="30" class="d-inline-block align-top" alt="">
     <%= profil.username %>
   </div>
     <form class="form-inline">
+    <button class="btn btn btn-outline-light mr-sm-1 active" type="button" onclick="location.href='./home'">Home</button>
     <button class="btn btn btn-outline-light mr-sm-1" type="button" onclick="location.href='./leaderboard'">Leaderboard</button>
     <button class="btn btn btn-outline-light mr-sm-5" type="button" onclick="location.href='./guilds'">Serveurs</button>
     <button class="btn btn btn-outline-danger my-2 my-sm-0" type="button" onclick="location.href='./logout'">Se déconnecter</button>
@@ -21,11 +22,14 @@
      Bienvenue <b><%= profil.username %></b> sur le webdashboard de <b>Oscuro</b> ! 🤩<br>
      </h1></center>
     <center><div style="width:50%">
-          <h2>
+         <h2>
             XP :      </h2><div class="progress" style="height:2em">
-          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="<%= profil.xp/10 %>" aria-valuemin="0" aria-valuemax="1000" style="width: <%= profil.xp/10 %>%"><%= profil.xp %> xp</div>
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="<%= profil.xp %>" aria-valuemin="0" aria-valuemax="<%= 300 %>" style="width: <%= ((profil.xp-profil.niveau*300)/300)*100 %>%"><%= profil.xp-profil.niveau*300 %> xp</div>
 </div>
-    </div>
+    </div><br><p><i>
+    
+    Encore <b><%= (profil.niveau+1)*300-profil.xp %></b> xp pour atteindre le niveau <b><%= profil.niveau+1 %></b>.
+    </i></p>
     <h2>
       Reputation : <b><%= profil.reputation %></b>
       </h2><h2>
