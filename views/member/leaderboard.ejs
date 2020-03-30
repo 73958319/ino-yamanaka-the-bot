@@ -8,15 +8,24 @@
   <body>
     <nav class="navbar navbar-dark bg-dark">
       <div class="navbar-brand" href="#">
-      <img src="https://cdn.discordapp.com/avatars/<%= profil.id %>/<%= profil.avatar %>.png" width="30" height="30" class="d-inline-block align-top" alt="">
+  <img src="<% if(profil.avatar === null){%>https://cdn.glitch.com/d4749c9d-7c2a-4abf-8cfc-bb263c4010af%2Fdiscord.png?v=1584292406264<%} else { %>https://cdn.discordapp.com/avatars/<%= profil.id %>/<%= profil.avatar %>.png<% } %>" width="30" height="30" class="d-inline-block align-top" alt="">
       <%= profil.username %>
       </div>
       <form class="form-inline">
-        <button class="btn btn btn-outline-light mr-sm-1" type="button" onclick="location.href='./leaderboard'">Leaderboard</button>
+        <button class="btn btn btn-outline-light mr-sm-1" type="button" onclick="location.href='./home'">Home</button>
+        <button class="btn btn btn-outline-light mr-sm-1 active" type="button" onclick="location.href='./leaderboard'">Leaderboard</button>
         <button class="btn btn btn-outline-light mr-sm-5" type="button" onclick="location.href='./guilds'">Serveurs</button>
         <button class="btn btn btn-outline-danger my-2 my-sm-0" type="button" onclick="location.href='./logout'">Se déconnecter</button>
       </form>
-    </nav>
-    <%= leaderboard %>
+    </nav><br>
+    <center><h1>
+      Leaderboard
+      </h1></center><br>
+        <div class="list-group">
+         <% for(var i=0; i<leaderboard.length; i++) { if(leaderboard[i]) { %>
+          <li class="list-group-item <% if(leaderboard[i].id_user === profil.id){ %> active <% } %>"><b><%= leaderboard[i].username %></b> possède <b><%= leaderboard[i].xp %></b> points d'expérience et est niveau <b><%= leaderboard[i].niveau %></b>.</li>
+
+<% }} %>
+          </div>
   </body>
 </html>
