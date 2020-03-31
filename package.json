@@ -18,7 +18,8 @@
     "ejs": "^3.0.1",
     "btoa": "^1.2.1",
     "express-session": "^1.16.1",
-    "mongoose": "^5.9.4"
+    "mongoose": "^5.9.4",
+    "canvas": "^2.6.1"
   },
   "engines": {
     "node": "12.x"
