@@ -65,7 +65,7 @@ img {
 }
 .hvrbox .hvrbox-text_mobile {
 	font-size: 15px;
-	border-top: 1px solid rgb(179, 179, 179); /* for old browsers */
+	border-top: 1px solid rgb(179, 179, 179);
 	border-top: 1px solid rgba(179, 179, 179, 0.7);
 	margin-top: 5px;
 	padding-top: 2px;
@@ -73,4 +73,12 @@ img {
 }
 .hvrbox.active .hvrbox-text_mobile {
 	display: block;
+}
+
+.doggy{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); 
+    top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
 }
