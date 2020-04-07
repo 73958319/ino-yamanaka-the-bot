@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Oscuro bot</title>
+    <title>Guilds | Bot discord with simple web dashboard.</title>
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   </head>
@@ -14,15 +14,16 @@
       <form class="form-inline">
         <button class="btn btn btn-outline-light mr-sm-1" type="button" onclick="location.href='./home'">Home</button>
         <button class="btn btn btn-outline-light mr-sm-1" type="button" onclick="location.href='./leaderboard'">Leaderboard</button>
-        <button class="btn btn btn-outline-light mr-sm-5 active" type="button" onclick="location.href='./guilds'">Serveurs</button>
-        <button class="btn btn btn-outline-danger my-2 my-sm-0" type="button" onclick="location.href='./logout'">Se déconnecter</button>
+        <button class="btn btn btn-outline-light mr-sm-5 active" type="button" onclick="location.href='./guilds'">Guilds</button>
+        <button class="btn btn btn-outline-danger my-2 my-sm-0" type="button" onclick="location.href='./logout'">Logout</button>
       </form>
     </nav>
     <br>
-   <center><h1>
-    Serveurs
-     </h1><br><h1>
-     <% for(var i=0; i<guilds.length; i++) { if(guilds[i]) { %>
+   <center><h1 style="color:black;">
+    Guilds</h1><br><h1>
+     <% if(guilds.lignth === 0) { %>
+     <center><h2 style="color:black">You are admin on any guild. 🙁</h2></center>
+     <% } for(var i=0; i<guilds.length; i++) { if(guilds[i]) { %>
      <a href="guilds/<%= guilds[i].id %>"><div class="hvrbox">
    <img src="<% if(guilds[i].icon){ %>https://cdn.discordapp.com/icons/<%= guilds[i].id %>/<%= guilds[i].icon %>.png<% } else { %>https://cdn.glitch.com/d4749c9d-7c2a-4abf-8cfc-bb263c4010af%2Fdiscord.png?v=1584292406264<% } %>">
        <div class="hvrbox-layer_top">

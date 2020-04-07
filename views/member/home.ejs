@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Oscuro bot</title>
+    <title>Dashboard | Bot discord with simple web dashboard.</title>
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   </head>
@@ -14,21 +14,21 @@
     <form class="form-inline">
     <button class="btn btn btn-outline-light mr-sm-1 active" type="button" onclick="location.href='./home'">Home</button>
     <button class="btn btn btn-outline-light mr-sm-1" type="button" onclick="location.href='./leaderboard'">Leaderboard</button>
-    <button class="btn btn btn-outline-light mr-sm-5" type="button" onclick="location.href='./guilds'">Serveurs</button>
-    <button class="btn btn btn-outline-danger my-2 my-sm-0" type="button" onclick="location.href='./logout'">Se déconnecter</button>
+    <button class="btn btn btn-outline-light mr-sm-5" type="button" onclick="location.href='./guilds'">Guilds</button>
+    <button class="btn btn btn-outline-danger my-2 my-sm-0" type="button" onclick="location.href='./logout'">Logout</button>
   </form>
 </nav>
-   <center><h1>
-     Bienvenue <b><%= profil.username %></b> sur le webdashboard de <b>Oscuro</b> ! 🤩<br>
+   <center><h1 style="color:black;">
+     Welcome <b><%= profil.username %></b> on the web dashboard ! 🤩<br>
      </h1></center>
     <center><div style="width:50%">
          <h2>
             XP :      </h2><div class="progress" style="height:2em">
-          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="<%= profil.xp %>" aria-valuemin="0" aria-valuemax="<%= 300 %>" style="width: <%= ((profil.xp-profil.niveau*300)/300)*100 %>%"><%= profil.xp-profil.niveau*300 %> xp</div>
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="<%= profil.xp %>" aria-valuemin="0" aria-valuemax="<%= 300 %>" style="width: <%= ((profil.xp-profil.level*300)/300)*100 %>%"><%= profil.xp-profil.level*300 %> xp</div>
 </div>
     </div><br><p><i>
     
-    Encore <b><%= (profil.niveau+1)*300-profil.xp %></b> xp pour atteindre le niveau <b><%= profil.niveau+1 %></b>.
+    <b><%= (profil.level+1)*300-profil.xp %></b> xp to reach level <b><%= profil.level+1 %></b>.
     </i></p>
     <h2>
       Reputation : <b><%= profil.reputation %></b>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Oscuro bot</title>
+    <title>Leaderboard | Bot discord with simple web dashboard.</title>
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   </head>
@@ -14,16 +14,17 @@
       <form class="form-inline">
         <button class="btn btn btn-outline-light mr-sm-1" type="button" onclick="location.href='./home'">Home</button>
         <button class="btn btn btn-outline-light mr-sm-1 active" type="button" onclick="location.href='./leaderboard'">Leaderboard</button>
-        <button class="btn btn btn-outline-light mr-sm-5" type="button" onclick="location.href='./guilds'">Serveurs</button>
-        <button class="btn btn btn-outline-danger my-2 my-sm-0" type="button" onclick="location.href='./logout'">Se déconnecter</button>
+        <button class="btn btn btn-outline-light mr-sm-5" type="button" onclick="location.href='./guilds'">Guilds</button>
+        <button class="btn btn btn-outline-danger my-2 my-sm-0" type="button" onclick="location.href='./logout'">Logout</button>
       </form>
     </nav><br>
-    <center><h1>
-      Leaderboard
-      </h1></center><br>
+    <center><h1 style="color:black;">
+      Leaderboard</h1></center><br>
         <div class="list-group">
-         <% for(var i=0; i<leaderboard.length; i++) { if(leaderboard[i]) { %>
-          <li class="list-group-item <% if(leaderboard[i].id_user === profil.id){ %> active <% } %>"><b><%= leaderboard[i].username %></b> possède <b><%= leaderboard[i].xp %></b> points d'expérience et est niveau <b><%= leaderboard[i].niveau %></b>.</li>
+          <% if(leaderboard.length === 0) { %>
+          <center><h2>No user is present on the leaderboard. 🙁</h2></center>
+         <% } for(var i=0; i<leaderboard.length; i++) { if(leaderboard[i]) { %>
+          <li class="list-group-item <% if(leaderboard[i].id_user === profil.id){ %> active <% } %>"><b><%= leaderboard[i].username %></b> has <b><%= leaderboard[i].xp %></b> xp and is level <b><%= leaderboard[i].level %></b>.</li>
 
 <% }} %>
           </div>
