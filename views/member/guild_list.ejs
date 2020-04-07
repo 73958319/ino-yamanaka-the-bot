@@ -21,7 +21,7 @@
     <br>
    <center><h1 style="color:black;">
     Guilds</h1><br><h1>
-     <% if(guilds.lignth === 0) { %>
+     <% if(guilds.length === 0) { %>
      <center><h2 style="color:black">You are admin on any guild. 🙁</h2></center>
      <% } for(var i=0; i<guilds.length; i++) { if(guilds[i]) { %>
      <a href="guilds/<%= guilds[i].id %>"><div class="hvrbox">
