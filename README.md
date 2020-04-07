@@ -16,4 +16,4 @@ Bot discord web dashboard project is a simple bot discord with a dashboard. For 
 We are two friends ([Reflect](https://github.com/B3t4Reflect) and [Bobbie](https://github.com/Aaaaalpha)) who want to show that creating a discord bot isn't so complicated.
 
 ## Credits
-Thanks to my friend (Saravenpi)[https://github.com/saravenpi] for his support. He helped me a lot.
+Thanks to my friend [Saravenpi](https://github.com/saravenpi) for his support. He helped me a lot.
