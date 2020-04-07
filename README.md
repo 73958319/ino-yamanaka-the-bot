@@ -17,3 +17,4 @@ We are two friends ([Reflect](https://github.com/B3t4Reflect) and [Bobbie](https
 
 ## Credits
 Thanks to my friend [Saravenpi](https://github.com/saravenpi) for his support. He helped me a lot.
+Special thanks to [ZedRoff](https://github.com/ZedRoff). It's thanks to him that I got interested in computers.
