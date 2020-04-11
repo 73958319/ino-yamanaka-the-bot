@@ -1,58 +1,65 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Home | Bot discord with simple web dashboard.</title>
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script
-			  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-			  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-			  crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <meta property="og:title" content="Bot discord with simple web dashboard."/>
-    <meta property="og:description" content="Bot discord with simple web dashboard." />
-    <meta property="og:image" content="https://media.discordapp.net/attachments/688487878816563241/695627793228234752/unknown.png?width=1040&height=519"/>
-  </head>
-  <body>
- <div id="particles-js"></div> 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Explaination of the bot</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <table style="width:100%">
-  <tr>
-    <th>Links :</th>
-    <td><a href="https://discordapp.com/oauth2/authorize?client_id=<%= bot_id %>&scope=bot&permissions=8">Invite the bot</a></td>
-    <td><a href="https://github.com/Aaaaalpha/bot-discord-web-dashboard">Repo github</a></td>
-  </tr>
-</table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-    <div class="doggy">
-      <center><h1>
-        Bot discord with simple web dashboard.
-      </h1>
-        </center><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">
-  Explaination of the bot
-</button>
-      <button type="button" onclick="location.href='./login_redirect'" class="btn btn-primary btn-lg" style="width: 200px;">Dashboard</button>
-</center>
-    </div>
-
-   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script> 
-  <script>
-  particlesJS("particles-js", {"particles":{"number":{"value":80,"density":{"enable":true,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
-  </script>
-  </body>
+   <head>
+      <title>Home | <%= app_name %></title>
+      <meta property="og:title" content="<%= app_name %>"/>
+      <meta property="og:description" content="<%= app_description %>" />
+      <meta property="og:image" content="https://i.imgur.com/btKKFDe.png"/>
+      <%- include("/app/public/ressources/require.ejs") %>
+      <link rel="stylesheet" href="/style.css">
+   </head>
+   <body>
+      <%- include("/app/public/ressources/navbar.ejs") %>
+      <section class="hero is-info is-medium">
+         <div class="hero-body">
+            <div class="container">
+               <h1 class="title columns is-mobile is-centered">
+                  <%= app_name %>
+               </h1>
+               <h2 class="subtitle columns is-mobile is-centered">
+                  <%= app_description %>
+               </h2>
+            </div>
+         </div>
+      </section>
+      <br>
+      <section class="container">
+         <div class="columns features">
+            <div class="column">
+               <div class="card is-shady">
+                  <header class="card-header">
+                     <p class="card-header-title has-background-info has-text-white">
+                        Open Source
+                     </p>
+                  </header>
+                  <div class="card-content">
+                     <div class="content">
+                        <p class="title is-6">
+                           <a href="https://github.com/Aaaaalpha/bot-discord-web-dashboard" class="card-footer-item">Github Repo</a>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="column">
+               <div class="card is-shady">
+                  <header class="card-header">
+                     <p class="card-header-title has-background-info has-text-white">
+                        Invitation
+                     </p>
+                  </header>
+                  <div class="card-content">
+                     <div class="content">
+                        <p class="title is-6">
+                           <a href="https://discordapp.com/oauth2/authorize?client_id=<%= bot_id %>&scope=bot&permissions=8" class="card-footer-item">Invite me</a>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+   </body>
 </html>

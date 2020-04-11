@@ -1,39 +1,21 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Dashboard | Bot discord with simple web dashboard.</title>
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  </head>
-  <body>
-<nav class="navbar navbar-dark bg-dark">
-    <div class="navbar-brand" href="#">
-  <img src="<% if(profil.avatar === null){%>https://cdn.glitch.com/d4749c9d-7c2a-4abf-8cfc-bb263c4010af%2Fdiscord.png?v=1584292406264<%} else { %>https://cdn.discordapp.com/avatars/<%= profil.id %>/<%= profil.avatar %>.png<% } %>" width="30" height="30" class="d-inline-block align-top" alt="">
-    <%= profil.username %>
-  </div>
-    <form class="form-inline">
-    <button class="btn btn btn-outline-light mr-sm-1 active" type="button" onclick="location.href='./home'">Home</button>
-    <button class="btn btn btn-outline-light mr-sm-1" type="button" onclick="location.href='./leaderboard'">Leaderboard</button>
-    <button class="btn btn btn-outline-light mr-sm-5" type="button" onclick="location.href='./guilds'">Guilds</button>
-    <button class="btn btn btn-outline-danger my-2 my-sm-0" type="button" onclick="location.href='./logout'">Logout</button>
-  </form>
-</nav>
-   <center><h1 style="color:black;">
-     Welcome <b><%= profil.username %></b> on the web dashboard ! 🤩<br>
-     </h1></center>
-    <center><div style="width:50%">
-         <h2>
-            XP :      </h2><div class="progress" style="height:2em">
-          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="<%= profil.xp %>" aria-valuemin="0" aria-valuemax="<%= 300 %>" style="width: <%= ((profil.xp-profil.level*300)/300)*100 %>%"><%= profil.xp-profil.level*300 %> xp</div>
-</div>
-    </div><br><p><i>
-    
-    <b><%= (profil.level+1)*300-profil.xp %></b> xp to reach level <b><%= profil.level+1 %></b>.
-    </i></p>
-    <h2>
-      Reputation : <b><%= profil.reputation %></b>
-      </h2><h2>
-      Money : <b><%= profil.money %></b>
-      </h2></center>
-  </body>
+   <head>
+      <title><%= profil.username %> | <%= app_name %></title>
+      <%- include("/app/public/ressources/require.ejs") %>
+   </head>
+   <body>
+      <%- include("/app/public/ressources/navbar.ejs") %>
+      <br>
+      <h1 class="title is-2 is-black columns is-mobile is-centered">
+         Welcome <span class="has-text-info">&nbsp;<%= profil.username %>&nbsp;</span> on the web dashboard ! 🤩<br>
+      </h1>
+      <progress class="progress is-large is-info" value="<%= ((profil.xp-profil.level*300)/300)*100 %>" max="100"></progress>
+      <p class="is-italic title is-4 columns is-mobile is-centered">
+         <span class="has-text-info"><%= (profil.level+1)*300-profil.xp %>&nbsp;</span> xp to reach level <span class="has-text-info">&nbsp;<%= profil.level+1 %></span>.
+         Reputation : <span class="has-text-info">&nbsp;<%= profil.reputation %></span>. Money : <span class="has-text-info">&nbsp;<%= profil.money %></span>.
+      </p>
+   </body>
 </html>
