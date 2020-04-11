@@ -3,6 +3,8 @@ Ino yamanaka the bot is a simple bot discord with a dashboard. For the moment, f
 You can easely create your own bot with dashbord on that basis.
 The power of the project ? 100% open source and everyone can contribute ;).
 
+[Link to the official site.](http://www.ino-yamanaka.tk/)
+
 # Warning
 The dashboard part is not functional at this time.
 
