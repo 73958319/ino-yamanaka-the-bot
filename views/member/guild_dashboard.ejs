@@ -1,23 +1,88 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Config | Bot discord with simple web dashboard.</title>
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  </head>
-  <body>
-            <nav class="navbar navbar-dark bg-dark">
-      <div class="navbar-brand" href="#">
-  <img src="<% if(profil.avatar === null){%>https://cdn.glitch.com/d4749c9d-7c2a-4abf-8cfc-bb263c4010af%2Fdiscord.png?v=1584292406264<%} else { %>https://cdn.discordapp.com/avatars/<%= profil.id %>/<%= profil.avatar %>.png<% } %>" width="30" height="30" class="d-inline-block align-top" alt="">
-      <%= profil.username %>
+   <head>
+      <title><%= server.name %> | <%= app_name %></title>
+      <%- include("/app/public/ressources/require.ejs") %>
+   </head>
+   <body>
+      <%- include("/app/public/ressources/navbar.ejs") %>
+      <br>
+      <h1 class="title is-1 columns is-mobile is-centered">Dashboard of <span class="has-text-danger">&nbsp;<%= server.name %></span>.</h1>
+      <div class="columns is-dark">
+         <div class="card column">
+            <header class="card-header">
+               <p class="card-header-title has-background-info has-text-white">
+                  Set Prefix
+               </p>
+            </header>
+            <div class="card-content">
+               <div class="content">
+                  <p class="title is-2 columns is-mobile is-centered">
+                     <%= server.prefix %>
+                  </p>
+               </div>
+            </div>
+            <footer class="card-footer">
+               <a href="#" class="card-footer-item">Default</a>
+               <a href="#" class="card-footer-item">Edit</a>
+            </footer>
+         </div>
+         <div class="card column">
+            <header class="card-header">
+               <p class="card-header-title has-background-info has-text-white">
+                  Welcome Event
+               </p>
+            </header>
+            <div class="card-content">
+               <div class="content">
+                  <p class="title is-2 columns is-mobile is-centered">
+                     Enabled
+                  </p>
+               </div>
+            </div>
+            <footer class="card-footer">
+               <a href="#" class="card-footer-item">Delete</a>
+               <a href="#" class="card-footer-item">Edit</a>
+            </footer>
+         </div>
+         <div class="card column">
+            <header class="card-header">
+               <p class="card-header-title has-background-info has-text-white">
+                  Auto-Moderation
+               </p>
+            </header>
+            <div class="card-content">
+               <div class="content">
+                  <p class="title is-2 columns is-mobile is-centered">
+                     Enabled
+                  </p>
+               </div>
+            </div>
+            <footer class="card-footer">
+               <a href="#" class="card-footer-item">Disable</a>
+            </footer>
+         </div>
       </div>
-      <form class="form-inline">
-        <button class="btn btn btn-outline-light mr-sm-1" type="button" onclick="location.href='../home'">Home</button>
-        <button class="btn btn btn-outline-light mr-sm-1" type="button" onclick="location.href='../leaderboard'">Leaderboard</button>
-        <button class="btn btn btn-outline-light mr-sm-5" type="button" onclick="location.href='../guilds'">Guilds</button>
-        <button class="btn btn btn-outline-danger my-2 my-sm-0" type="button" onclick="location.href='../logout'">Logout</button>
-      </form>
-    </nav>
-    <h1 style="color:black;">Dashboard of <b><%= server %></b></h1>
-  </body>
+      <div class="dropdown" style="display:none">
+         <div class="dropdown-trigger">
+            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+            <span id="channel-name">Choose a channel</span>
+            </button>
+         </div>
+         <div class="dropdown-menu" id="dropdown-menu" role="menu">
+            <div class="dropdown-content">
+               <% if(server.channels !== undefined){ server.channels.map(channel => {
+                  if(channel.type  !== 0) return; %>
+               <a id="channel-<%= channel.id %>" class="dropdown-item channel-item"><%= channel.name %></a>
+               <% })} else { %>
+               <a class="dropdown-item">
+               No channel found. 🙁
+               </a>
+               <% } %>
+            </div>
+         </div>
+      </div>
+   </body>
 </html>

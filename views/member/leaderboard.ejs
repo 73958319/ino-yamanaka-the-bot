@@ -1,32 +1,60 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Leaderboard | Bot discord with simple web dashboard.</title>
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  </head>
-  <body>
-    <nav class="navbar navbar-dark bg-dark">
-      <div class="navbar-brand" href="#">
-  <img src="<% if(profil.avatar === null){%>https://cdn.glitch.com/d4749c9d-7c2a-4abf-8cfc-bb263c4010af%2Fdiscord.png?v=1584292406264<%} else { %>https://cdn.discordapp.com/avatars/<%= profil.id %>/<%= profil.avatar %>.png<% } %>" width="30" height="30" class="d-inline-block align-top" alt="">
-      <%= profil.username %>
-      </div>
-      <form class="form-inline">
-        <button class="btn btn btn-outline-light mr-sm-1" type="button" onclick="location.href='./home'">Home</button>
-        <button class="btn btn btn-outline-light mr-sm-1 active" type="button" onclick="location.href='./leaderboard'">Leaderboard</button>
-        <button class="btn btn btn-outline-light mr-sm-5" type="button" onclick="location.href='./guilds'">Guilds</button>
-        <button class="btn btn btn-outline-danger my-2 my-sm-0" type="button" onclick="location.href='./logout'">Logout</button>
-      </form>
-    </nav><br>
-    <center><h1 style="color:black;">
-      Leaderboard</h1></center><br>
-        <div class="list-group">
-          <% if(leaderboard.length === 0) { %>
-          <center><h2>No user is present on the leaderboard. 🙁</h2></center>
-         <% } for(var i=0; i<leaderboard.length; i++) { if(leaderboard[i]) { %>
-          <li class="list-group-item <% if(leaderboard[i].id_user === profil.id){ %> active <% } %>"><b><%= leaderboard[i].username %></b> has <b><%= leaderboard[i].xp %></b> xp and is level <b><%= leaderboard[i].level %></b>.</li>
-
-<% }} %>
-          </div>
-  </body>
+   <head>
+      <title>Leaderboard | <%= app_name %></title>
+      <%- include("/app/public/ressources/require.ejs") %>
+      <link rel="stylesheet" href="/style.css">
+   </head>
+   <body>
+      <%- include("/app/public/ressources/navbar.ejs") %>
+      <br>
+      <h1 class="title is-2 is-black columns is-mobile is-centered">
+         Leaderboard
+      </h1>
+      <br>
+      <% if(leaderboard.length === 0) { %>
+      <p class="title is-2 columns is-mobile is-centered" style="margin-bottom: -0rem;">No user is present on the leaderboard. 🙁</p>
+      <% } else { %> 
+      <table class="table" style="width: 100%;">
+         <thead>
+            <tr>
+               <th><abbr title="Classement of the user">Rank</abbr></th>
+               <th>Username</th>
+               <th><abbr title="The xp of the user">Xp</abbr></th>
+               <th><abbr title="The level of the user">Lvl</abbr></th>
+               <th><abbr title="The reputation of the user">Rep</abbr></th>
+               <th><abbr title="The money of the user">$</abbr></th>
+               <th>Description</th>
+            </tr>
+         </thead>
+         <tfoot>
+            <tr>
+               <th><abbr title="Classement of the user">Rank</abbr></th>
+               <th>Username</th>
+               <th><abbr title="The xp of the user">Xp</abbr></th>
+               <th><abbr title="The level of the user">Lvl</abbr></th>
+               <th><abbr title="The reputation of the user">Rep</abbr></th>
+               <th><abbr title="The money of the user">$</abbr></th>
+               <th>Description</th>
+            </tr>
+         </tfoot>
+         <tbody>
+            <% for(var i=0; i<leaderboard.length; i++) { %>
+            <tr>
+               <th><%= i+1 %></th>
+               <td><%= leaderboard[i].username %>
+               </td>
+               <td><%= leaderboard[i].xp %></td>
+               <td><%= leaderboard[i].level %></td>
+               <td><%= leaderboard[i].reputation %></td>
+               <td><%= leaderboard[i].money %></td>
+               <td>No description.</td>
+            </tr>
+            <% } %>
+         </tbody>
+      </table>
+      <% } %>
+   </body>
 </html>
