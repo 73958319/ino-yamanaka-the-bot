@@ -3,14 +3,14 @@ Ino yamanaka the bot is a simple bot discord with a dashboard. For the moment, f
 You can easely create your own bot with dashbord on that basis.
 The power of the project ? 100% open source and everyone can contribute ;).
 
-[Link to the official site.](http://www.ino-yamanaka.tk/)
+[Link to the official site.](https://www.ino-yamanaka.tk/)
 
 # Warning
 The dashboard part is not functional at this time.
 
 # Preview
-![Home page image](https://i.imgur.com/btKKFDe.png "Home page")
-![Dashboard](https://i.imgur.com/hXBcnc6.png "Dashboard")
+![Home page image](https://i.imgur.com/JBkhEC6.png "Home page")
+![Dashboard](https://i.imgur.com/ua3uL60.png "Dashboard")
 
 # Start the bot
 1 - run the command : `npm install`.
@@ -23,10 +23,12 @@ The dashboard part is not functional at this time.
 
 5 - run the command : `npm start`.
 
-## Developers
-We are two friends ([me](https://github.com/Aaaaalpha) and [Reflect](https://github.com/B3t4Reflect)) who want to show that creating a discord bot isn't so complicated.
+## Why ?
+I just want to show that creating a discord bot isn't so complicated.
 
 ## Credits
+Thanks to [Reflect](https://github.com/B3t4Reflect) who has a lot contribued.
+
 Thanks to my friend [Saravenpi](https://github.com/saravenpi) for his support. He helped me a lot.
 
 Special thanks to [ZedRoff](https://github.com/ZedRoff). It's thanks to him that I got interested in computers.

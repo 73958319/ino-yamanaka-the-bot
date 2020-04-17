@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -9,9 +7,31 @@
    <body>
       <%- include("/app/public/ressources/navbar.ejs") %>
       <br>
-      <h1 class="title is-1 columns is-mobile is-centered">Dashboard of <span class="has-text-danger">&nbsp;<%= server.name %></span>.</h1>
+      <p class="title is-1 columns is-mobile is-centered">Dashboard of <span class="has-text-danger">&nbsp;<%= server.name %></span>.</p>
+    <div class="tabs is-centered">
+      <ul>
+        <li class="tab_link is-active" id="info_link"><a>Info</a></li>
+        <li class="tab_link" id="warnings_link"><a>Warnings</a></li>
+        <li class="tab_link" id="logs_link"><a>Logs</a></li>
+        <li class="tab_link" id="config_link"><a>Config</a></li>
+      </ul>
+    </div>
+     
+     <div id="info">
+      <p class="title is-2 columns is-mobile is-centered">Soon.</p>
+     </div>
+     
+     <div id="warnings" style="display:none">
+       <p class="title is-2 columns is-mobile is-centered">Soon.</p>
+     </div>
+     
+     <div id="logs" style="display:none">
+       <p class="title is-2 columns is-mobile is-centered">Soon.</p>
+     </div>
+     
+    <div id="config" style="display:none">
       <div class="columns is-dark">
-         <div class="card column">
+         <div class="card column is-4">
             <header class="card-header">
                <p class="card-header-title has-background-info has-text-white">
                   Set Prefix
@@ -25,43 +45,7 @@
                </div>
             </div>
             <footer class="card-footer">
-               <a href="#" class="card-footer-item">Default</a>
-               <a href="#" class="card-footer-item">Edit</a>
-            </footer>
-         </div>
-         <div class="card column">
-            <header class="card-header">
-               <p class="card-header-title has-background-info has-text-white">
-                  Welcome Event
-               </p>
-            </header>
-            <div class="card-content">
-               <div class="content">
-                  <p class="title is-2 columns is-mobile is-centered">
-                     Enabled
-                  </p>
-               </div>
-            </div>
-            <footer class="card-footer">
-               <a href="#" class="card-footer-item">Delete</a>
-               <a href="#" class="card-footer-item">Edit</a>
-            </footer>
-         </div>
-         <div class="card column">
-            <header class="card-header">
-               <p class="card-header-title has-background-info has-text-white">
-                  Auto-Moderation
-               </p>
-            </header>
-            <div class="card-content">
-               <div class="content">
-                  <p class="title is-2 columns is-mobile is-centered">
-                     Enabled
-                  </p>
-               </div>
-            </div>
-            <footer class="card-footer">
-               <a href="#" class="card-footer-item">Disable</a>
+              <a href="#" id="setPrefixLink" class="card-footer-item">Edit</a>
             </footer>
          </div>
       </div>
@@ -84,5 +68,63 @@
             </div>
          </div>
       </div>
+      <div id="modalSetPrefix" class="modal">
+        <form method="POST" action="/guilds/<%= server.id %>/set-prefix">
+          <div class="modal-background"></div>
+          <div class="modal-card centratmax">
+            <header class="modal-card-head has-background-info">
+              <p class="modal-card-title has-text-white">Set prefix</p>
+              <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+              <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                  <label class="label">New :</label>
+                </div>
+                <div class="field-body">
+                  <div class="field">
+                    <p class="control">
+                      <input class="input" type="text" name="new_prefix" value="<%= server.prefix %>" required>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <footer class="modal-card-foot">
+              <button class="button is-info" type="submit">Apply</button>
+              <button class="button cancel">Cancel</button>
+            </footer>
+          </div>
+        </form>
+    </div>
+     </div>
+      
+     <script>
+       /*/
+       / modal script
+       /*/
+       $("#setPrefixLink").click(function() {
+         $("#modalSetPrefix").css("display","block")
+       });
+       $(".delete").click(function() {
+         $(this).parent().parent().parent().parent().css("display","none");
+       });
+       $(".cancel").click(function() {
+         $(this).parent().parent().parent().parent().css("display","none");
+       });
+       
+       /*/
+       / tabs script
+       /*/
+       $(".tab_link").click(function() {
+        let part = $(this).attr("id").split("_")[0];
+        $(".tab_link").each(function() {
+           $(this).removeClass("is-active");
+           $(`#${$(this).attr("id").split("_")[0]}`).css("display","none");
+         });
+         $(this).addClass("is-active");
+         $(`#${part}`).css("display","block");
+       })
+     </script>
    </body>
 </html>
