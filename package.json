@@ -23,7 +23,8 @@
     "mongoose": "^5.9.4",
     "node-fetch": "^2.6.0",
     "node-opus": "^0.3.2",
-    "superagent": "^5.2.2"
+    "superagent": "^5.2.2",
+    "util": "^0.12.2"
   },
   "engines": {
     "node": "12.x"
