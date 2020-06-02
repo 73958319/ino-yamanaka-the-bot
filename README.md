@@ -1,3 +1,4 @@
+Problem with the oauth, fix it soon.
 # Ino yamanaka the bot
 Ino yamanaka the bot is a simple bot discord with a dashboard. For the moment, few commands are availables but it's constantly developing.
 You can easely create your own bot with dashbord on that basis.
