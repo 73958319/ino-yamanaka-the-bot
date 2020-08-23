@@ -28,8 +28,6 @@ The dashboard part is not functional at this time.
 I just want to show that creating a discord bot isn't so complicated.
 
 ## Credits
-Thanks to [Reflect](https://github.com/B3t4Reflect) who has a lot contribued.
-
 Thanks to my friend [Saravenpi](https://github.com/saravenpi) for his support. He helped me a lot.
 
 Special thanks to [ZedRoff](https://github.com/ZedRoff). It's thanks to him that I got interested in computers.
